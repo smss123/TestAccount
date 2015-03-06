@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TestAccount.DataAccessLayer
 {
-    public class Class1
+   public class DataBase
     {
+        protected static dbDataContext db = new dbDataContext();
     }
 }

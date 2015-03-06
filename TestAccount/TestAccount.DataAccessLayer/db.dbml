@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TestDb" Class="dbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SAMER\SQL2008;Initial Catalog=TestDb;Integrated Security=True" SettingsObjectName="TestAccount.DataAccessLayer.Properties.Settings" SettingsPropertyName="TestDbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="Secuirty.UserGroup" Member="UserGroups">
+    <Type Name="UserGroup">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GroupDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="UserGroup_GroupPermession" Member="GroupPermessions" ThisKey="ID" OtherKey="UserGroupID" Type="GroupPermession" />
+      <Association Name="UserGroup_SystemUser" Member="SystemUsers" ThisKey="ID" OtherKey="GroupID" Type="SystemUser" />
+    </Type>
+  </Table>
+  <Table Name="Secuirty.GroupPermession" Member="GroupPermessions">
+    <Type Name="GroupPermession">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SystemPermessionID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UserGroupID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="PermessionValue" Type="System.Object" DbType="Variant" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="UserGroup_GroupPermession" Member="UserGroup" ThisKey="UserGroupID" OtherKey="ID" Type="UserGroup" IsForeignKey="true" />
+      <Association Name="SystemPermession_GroupPermession" Member="SystemPermession" ThisKey="SystemPermessionID" OtherKey="ID" Type="SystemPermession" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Secuirty.SystemPermession" Member="SystemPermessions">
+    <Type Name="SystemPermession">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PermissionName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PersmessionDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PersmessionObject" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PermessionProperty" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PermessionForm" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="SystemPermession_GroupPermession" Member="GroupPermessions" ThisKey="ID" OtherKey="SystemPermessionID" Type="GroupPermession" />
+    </Type>
+  </Table>
+  <Table Name="Secuirty.SystemUser" Member="SystemUsers">
+    <Type Name="SystemUser">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Pwd" Type="System.String" DbType="NChar(6)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GroupID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Association Name="UserGroup_SystemUser" Member="UserGroup" ThisKey="GroupID" OtherKey="ID" Type="UserGroup" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+</Database>

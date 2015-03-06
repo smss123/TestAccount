@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="db">
+  <DataContextMoniker Name="/dbDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0df5d827-4860-4dc9-bacd-5276b377f28d" absoluteBounds="0.75, 4, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/dbDataContext/UserGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7bb843b0-319a-480b-999f-c87619ebaae7" absoluteBounds="0.765, 4.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9facbf18-86d0-4c22-8584-a2c0f3e45756" absoluteBounds="3.5, 3, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/dbDataContext/GroupPermession" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b91de784-9517-4b68-8be7-9fc077fe157f" absoluteBounds="3.515, 3.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c8a4354a-fc5b-4bf8-9e38-cd5a88544c31" absoluteBounds="0.75, 0.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/dbDataContext/SystemPermession" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d7ded221-8c0d-4687-aee4-4724fe0f6b63" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7b7d7ed5-f232-46db-8310-6ba5e8933d0a" absoluteBounds="3.5, 6.125, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/dbDataContext/SystemUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0ef6bf43-46a7-4a9b-8b1c-53537ff7e664" absoluteBounds="3.515, 6.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 4.28929768880208); (3.5 : 4.28929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbDataContext/UserGroup/UserGroup_GroupPermession" />
+      <nodes>
+        <classShapeMoniker Id="0df5d827-4860-4dc9-bacd-5276b377f28d" />
+        <classShapeMoniker Id="9facbf18-86d0-4c22-8584-a2c0f3e45756" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.73159912109375); (4.5 : 1.73159912109375); (4.5 : 3)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbDataContext/SystemPermession/SystemPermession_GroupPermession" />
+      <nodes>
+        <classShapeMoniker Id="c8a4354a-fc5b-4bf8-9e38-cd5a88544c31" />
+        <classShapeMoniker Id="9facbf18-86d0-4c22-8584-a2c0f3e45756" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 5.3862939453125); (1.75 : 7.01044840494792); (3.5 : 7.01044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbDataContext/UserGroup/UserGroup_SystemUser" />
+      <nodes>
+        <classShapeMoniker Id="0df5d827-4860-4dc9-bacd-5276b377f28d" />
+        <classShapeMoniker Id="7b7d7ed5-f232-46db-8310-6ba5e8933d0a" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
